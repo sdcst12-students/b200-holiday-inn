@@ -5,6 +5,10 @@ def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
     integers = []
+    for i in myList:
+        if i%1 == 0:
+            integers.append(i)
+
 
     return integers
 
@@ -14,13 +18,19 @@ def getFactor(myList,number):
     # iterate through the list and add the number to the list if
     # it is a factor of the number
     factors = []
-
+    for i in myList:
+        if i !=0:
+            if (number/i) %1 ==0:
+                factors.append(i)
     return factors
 
 def getNegatives(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the negative numbers to the new list
     negatives = []
+    for i in myList:
+        if i < 0:
+            negatives.append(i)
 
     return negatives
 
@@ -30,6 +40,11 @@ def getIntersection(list1,list2):
     # return a sorted list of numbers that is in both lists
     # the intersection of the 2 number sets
     common = []
+    for i in list1:
+        for j in list2:
+            if i == j:
+                common.append(i)
+        
 
     return common
 
@@ -39,7 +54,13 @@ def getUnion(list1,list2):
     # return a sorted list of numbers that is in either of the lists
     # duplicate values will be ignored
     union = []
-
+    for i in list1:
+        if i not in union:
+            union.append(i)
+    for i in list2:
+        if i not in union:
+            union.append(i)
+    union.sort()
     return union   
 
 def getMerge(list1,list2):
@@ -48,7 +69,11 @@ def getMerge(list1,list2):
     # add the elements of list2 into list1
     # if the list2 element is in list1, add it at the position where it occurs in list1
     # if the list2 element is not in list1, add it to the end
-
+    for i in range(len(list2)):
+        if list2[i] in list1:
+            list1.insert(list1.index(list2[i]),list2[i])
+        else:
+            list1.append(list2[i])
     return list1
 
 
